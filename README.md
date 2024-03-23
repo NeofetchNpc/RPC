@@ -7,4 +7,13 @@
 </p>
 
 ### 📮 How To Use?
-wait
+```
+git clone https://github.com/HindiaFtNpc/RPC.git
+```
+```
+cd RPC
+```
+#### 🔰 You edit the config.json first!
+```
+Bntr
+```
