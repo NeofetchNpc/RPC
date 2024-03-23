@@ -8,30 +8,32 @@ const client = new Discord.Client();
 client.once('ready', async () => {
   console.log(`Logged in as ${client.user.tag}`);
 
-let startTime = Date.now();
+  let startTime = Date.now();
 
   // Update presence every 5 seconds with system stats
   setInterval(async () => {
     const cpuUsage = await getCpuUsage();
     const ramUsage = getRamUsage();
     const { downloadSpeed, uploadSpeed } = getRandomInternetSpeed();
-
     const uptime = calculateUptime(startTime);
 
-    const rpcConfig = config.rpc;
+    const presenceDetails = `CPU: ${cpuUsage.toFixed(2)}% RAM: ${ramUsage.toFixed(2)}% | Uptime: ${uptime}`;
+    const presenceState = `Download: ${downloadSpeed.toFixed(2)} MB/s | Upload: ${uploadSpeed.toFixed(2)} MB/s`;
 
-const r = new Discord.RichPresence()
-  .setApplicationId(config.applicationId)
-  .setType(rpcConfig.type)
-  .setName(rpcConfig.name)
-  .setAssetsLargeImage(rpcConfig.largeImage)
-  .setAssetsLargeText(rpcConfig.largeImageText)
-  .setAssetsSmallImage(rpcConfig.smallImage)
-  .setAssetsSmallText(rpcConfig.smallImageText)
-  .addButton('Unemployment', 'https://discord.com/invite/JkMqE7tHKT');
+    const r = new Discord.RichPresence()
+      .setApplicationId(config.applicationId)
+      .setType('PLAYING')
+      .setName(config.rpc.name)
+      .setDetails(presenceDetails)
+      .setState(presenceState)
+      .setAssetsLargeImage(config.rpc.largeImage)
+      .setAssetsLargeText(config.rpc.largeImageText)
+      .setAssetsSmallImage(config.rpc.smallImage)
+      .setAssetsSmallText(config.rpc.smallImageText)
+      .addButton('Unemployment', 'https://discord.com/invite/JkMqE7tHKT');
 
-client.user.setActivity(r);
-  }, 1000); // Update every
+    client.user.setActivity(r);
+  }, 5000); // Update every 5 seconds
 });
 
 client.login(config.token);
