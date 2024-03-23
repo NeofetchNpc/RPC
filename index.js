@@ -18,20 +18,19 @@ let startTime = Date.now();
 
     const uptime = calculateUptime(startTime);
 
-    const r = new Discord.RichPresence()
-      .setApplicationId('962140882235195462')
-      .setType('PLAYING')
-      .setName('LinuxxMD 🛐')
-      .setDetails(`CPU: ${cpuUsage.toFixed(2)}% RAM: ${ramUsage.toFixed(2)}% | Uptime: ${uptime}`)
-      .setState(`Download: ${downloadSpeed.toFixed(2)} MB/s | Upload: ${uploadSpeed.toFixed(2)} MB/s`)
-      .setStartTimestamp(undefined)
-      .setAssetsLargeImage('https://cdn.discordapp.com/attachments/1165331380419448874/1193953750210056202/30da9f70a1fc97e8f56852672e2ccd2f.gif?ex=65ae9714&is=659c2214&hm=18981608b9e1696a658a57e5db0658272bb83cdb4ee5d03ef9ed8b601f6d2a44&')
-      .setAssetsLargeText('LinuxxMD')
-      .setAssetsSmallImage('https://cdn.discordapp.com/attachments/1165331380419448874/1174799267001532586/verified.gif')
-      .setAssetsSmallText('🍉')
-      .addButton('Unemployment', 'https://discord.com/invite/JkMqE7tHKT');
+    const rpcConfig = config.rpc;
 
-    client.user.setActivity(r);
+const r = new Discord.RichPresence()
+  .setApplicationId(config.applicationId)
+  .setType(rpcConfig.type)
+  .setName(rpcConfig.name)
+  .setAssetsLargeImage(rpcConfig.largeImage)
+  .setAssetsLargeText(rpcConfig.largeImageText)
+  .setAssetsSmallImage(rpcConfig.smallImage)
+  .setAssetsSmallText(rpcConfig.smallImageText)
+  .addButton('Unemployment', 'https://discord.com/invite/JkMqE7tHKT');
+
+client.user.setActivity(r);
   }, 1000); // Update every
 });
 
