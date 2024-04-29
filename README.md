@@ -21,9 +21,9 @@ cd RPC
   "rpc": {
     "name": "24/7 😴", // Set Nama RPC
     "largeImage": "https://cdn.discordapp.com/attachments&", // Png/Gif Isis Memakai Url Cdn Discord
-    "largeImageText": "LinuxxMD",
-    "smallImage": "https://cdn.discordapp.com/attachments/1165331380419448874/1174799267001532586/verified.gif",
-    "smallImageText": "🍉"
+    "largeImageText": "LinuxxMD", // Set Nama Img
+    "smallImage": "https://cdn.discordapp.com/attachments/1165331380419448874/1174799267001532586/verified.gif", // Png/Gif SamaAja
+    "smallImageText": "🍉" // Set Nama Img
   },
   "button": {
     "label": "Unemployment",
