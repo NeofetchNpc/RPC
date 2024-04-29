@@ -29,8 +29,11 @@ client.once('ready', async () => {
       .setAssetsLargeImage(config.rpc.largeImage)
       .setAssetsLargeText(config.rpc.largeImageText)
       .setAssetsSmallImage(config.rpc.smallImage)
-      .setAssetsSmallText(config.rpc.smallImageText)
-      .addButton('Unemployment', 'https://discord.com/invite/JkMqE7tHKT');
+      .setAssetsSmallText(config.rpc.smallImageText);
+
+    if (config.button && config.button.label && config.button.url) {
+      r.addButton(config.button.label, config.button.url);
+    }
 
     client.user.setActivity(r);
   }, 5000); // Update every 5 seconds
