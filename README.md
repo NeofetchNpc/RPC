@@ -14,7 +14,7 @@ git clone https://github.com/HindiaFtNpc/RPC.git
 cd RPC
 ```
 #### 🔰 You edit the config.json first!
-```
+```sh
 {
   "applicationId": "962140882235195462", // Gak Di Ubah Juga Gak Pp
   "token": "Ryzenn", // Pake Token Akun Kalian
